@@ -1,0 +1,43 @@
+    static class FbLogic
+    {
+        private static string fizzText;
+        private static string buzzText;
+        private static string space;
+
+        static FbLogic()
+        {
+            fizzText = "Fizz";
+            buzzText = "Buzz";
+            space = " ";
+        }
+
+        public static void FbDoMath(int FbNumber)
+        {
+            try
+            {
+                for (int x = Math.Abs(1); x <= Math.Abs(FbNumber); x++)
+                {
+                    if ((x % 3 == 0) && (x % 5 == 0))
+                    {
+                        Console.WriteLine(fizzText + buzzText);
+                    }
+                    else if (x % 3 == 0)
+                    {
+                        Console.Write(fizzText + space);
+                    }
+                    else if (x % 5 == 0)
+                    {
+                        Console.Write(buzzText + space);
+                    }
+                    else
+                    {
+                        Console.Write(x + space);
+                    }
+                }
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("There was an error. Method FbDoMath() only accepts the datatype of integer");
+            }
+        }
+    }
