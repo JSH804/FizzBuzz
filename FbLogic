@@ -13,31 +13,34 @@
 
         public static void FbDoMath(int FbNumber)
         {
-            try
-            {
-                for (int x = Math.Abs(1); x <= Math.Abs(FbNumber); x++)
+            if (FbNumber != 0)
+                try
                 {
-                    if ((x % 3 == 0) && (x % 5 == 0))
+                    for (int x = 1; x <= Math.Abs(FbNumber); x++)
                     {
-                        Console.WriteLine(fizzText + buzzText);
-                    }
-                    else if (x % 3 == 0)
-                    {
-                        Console.Write(fizzText + space);
-                    }
-                    else if (x % 5 == 0)
-                    {
-                        Console.Write(buzzText + space);
-                    }
-                    else
-                    {
-                        Console.Write(x + space);
+                        if ((x % 3 == 0) && (x % 5 == 0))
+                        {
+                            Console.WriteLine(fizzText + buzzText);
+                        }
+                        else if (x % 3 == 0)
+                        {
+                            Console.Write(fizzText + space);
+                        }
+                        else if (x % 5 == 0)
+                        {
+                            Console.Write(buzzText + space);
+                        }
+                        else
+                        {
+                            Console.Write(x + space);
+                        }
                     }
                 }
-            }
-            catch (FormatException)
-            {
-                Console.WriteLine("There was an error. Method FbDoMath() only accepts the datatype of integer");
-            }
+                catch (FormatException)
+                {
+                    Console.WriteLine("There was an error. Method FbDoMath() only accepts the datatype of integer");
+                }
+            else
+                Console.WriteLine("Value cannot be 0");
         }
     }
