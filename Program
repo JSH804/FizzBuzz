@@ -1,0 +1,29 @@
+    class Program
+    {
+        private static void Main(string[] args)
+        {
+            string userInputString;
+            int userInputInt;
+            bool convertSuccess = false;
+
+            Console.WriteLine("Enter a number");
+            userInputString = Console.ReadLine();
+
+            //loop to convert userInputString to int and call the method FbLogic.FbDoMath()
+            while (convertSuccess != true)
+            {
+                try
+                {
+                    userInputInt = Convert.ToInt32(userInputString);
+                    FbLogic.FbDoMath(userInputInt);
+                    convertSuccess = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Error: Your input was not valid. Please enter a number with NO characters.");
+                    userInputString = Console.ReadLine();
+                }
+            }
+            Console.ReadLine();
+        }
+    }
